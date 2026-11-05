@@ -1,0 +1,10 @@
+const SID = "12403030129";
+const examDB = db.getSiblingDB("exam_" + SID);
+let doc = examDB.courses.findOne({_id:"COURSE-" + SID + "-01"});
+let ch02 = doc.chapters.find(x=>x.chapterId==="CH02");
+print("(1) CH02标题：", ch02.title);
+let ch03List = doc.chapters.filter(x=>x.chapterId==="CH03");
+print("(2) CH03数量：", ch03List.length);
+print("(3) 章节总数：", doc.chapters.length);
+print("(4) teacher：", doc.teacher);
+print("(4) status：", doc.status);
